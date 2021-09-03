@@ -1,0 +1,18 @@
+body {
+    text-align: center;
+}
+
+#gameboard {
+    display: grid;
+    border: solid silver;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.cells {
+    border: .1rem solid black;
+    font-size: xx-large;
+    height: 97px;
+}
