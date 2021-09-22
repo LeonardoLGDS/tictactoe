@@ -22,7 +22,6 @@ const Gameboard = (() => {
         [0, 4, 8],
         [2, 4, 6],
     ];
-
     return { boardArray, winningConditions };
 
 })();
@@ -69,12 +68,12 @@ const Gameflux = (() => {
             player1.winningConditionsMet = Gameboard.winningConditions[i].every((elemt) => player1.choicesHistory.includes(elemt));
             if (player1.winningConditionsMet == true) {
                 break;
-            };
+            }
             player2.winningConditionsMet = Gameboard.winningConditions[i].every((elemt) => player2.choicesHistory.includes(elemt));
             if (player2.winningConditionsMet == true) {
                 break;
-            };
-        };
+            }
+        }
         if (player1.winningConditionsMet == true) {
             alert('Player1 is the winner!');
             resetGame(cells);
@@ -84,7 +83,7 @@ const Gameflux = (() => {
         } else if (Gameboard.boardArray.length == 0) {
             alert('Tie!');
             resetGame(cells);
-        };
+        }
     };
     const resetGame = (gridHtml) => {
         player1.choicesHistory = [];
@@ -94,18 +93,21 @@ const Gameflux = (() => {
     };
     const computerPlay = (level) => {
         let counter = 0;
+        
+        const randomMove = () => {player2.playerChoice = Gameboard.boardArray[Math.floor(Math.random() * Gameboard.boardArray.length)]};
+        
         const check = (elemt) => {
             counter += 1;
             console.log(counter);
             return player2.choicesHistory.includes(elemt);
         };
-        if (level = "easy") {
-            player2.playerChoice = Gameboard.boardArray[Math.floor(Math.random() * Gameboard.boardArray.length)];
-        } else if (leve = "medium") {
+        if (level == "easy") {
+            randomMove();
+        } else if (leve == "medium") {
             player2.winningConditionsMet = Gameboard.winningConditions[i].every((elemt) => check(elemt));
-        } else {
-
-        };
+            randomMove();
+        }
+        
     };
     return { Gameboard, player1, player2 };
 })();
